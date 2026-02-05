@@ -4,8 +4,11 @@ const Booking = require('../models/Booking');
 // @route   POST /api/bookings
 const createBooking = async (req, res) => {
   // ... (keep your existing code here) ...
-  try {
+  console.log("Request Body:", req.body);
+  console.log("Entering here in booking creation");
+
     const { trekId, name, email, phone, trekDate, travelers, totalPrice } = req.body;
+    console.log("Entering here in booking creation");
     const booking = await Booking.create({
       trekId,
       user: { name, email, phone },
@@ -14,9 +17,7 @@ const createBooking = async (req, res) => {
       totalPrice,
     });
     res.status(201).json(booking);
-  } catch (error) {
-    res.status(500).json({ message: 'Server Error' });
-  }
+
 };
 
 // ADD THIS NEW FUNCTION 👇

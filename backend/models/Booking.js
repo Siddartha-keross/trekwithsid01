@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bookingSchema = new mongoose.Schema(
   {
     trekId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       ref: 'Trek', // Connects this booking to a specific Trek
       required: true,
     },
